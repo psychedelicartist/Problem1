@@ -1,0 +1,46 @@
+﻿# -*- coding: utf-8 -*-
+""
+"213524883: Tutorial 1"
+"Problem 3"
+import numpy as np
+n = int(input("Please enter the number of points n: "))
+x = np.linspace(0, np.pi/2, n)
+
+import numpy
+
+x1=0
+x2=numpy.pi/2
+
+m=[0.1, 0.3, 0.01, 0.03, 0.001]
+
+for dx in m:
+    x=numpy.arange(x1, x2, dx)
+    y=numpy.cos(x)
+    tot=y.sum()*dx
+    print('The integral is ' + repr(tot) + ' with dx=' + repr(dx) + ' and error proportional to n**(-1)')
+ 
+"Problem 4"
+print("Odd: For vector x, slice like x[1:n:2] with n as last number in x.")
+print("Even and skipping first and last points: Slice vector x like x[2:n:2] with n defined above.")
+
+"Problem 5"
+
+def Simpson_rule(n):
+        dx=np.pi/2/(n-1)*2
+        y=np.cos(m(n))
+        Xe=y[2::2] 
+        Xo=y[1:-1:2]
+        tot=np.sum(Xe)/3+np.sum(Xo)*2/3+y[0]/6+y[-1]/6
+        return tot*dx
+        
+        
+
+if __name__=='__main__':
+
+        ans=Simpson_rule(11)
+        err=np.abs(ans-1)
+        print 'The answer is ' + repr(ans)
+        print 'The error for 11 points is ' + repr(err)
+        for n in z:
+                error=abs(Simpson_rule(n)-1)
+print 'The error for ' + repr(n)+ ' points is ' + repr(err)
